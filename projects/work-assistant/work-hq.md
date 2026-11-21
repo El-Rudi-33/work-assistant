@@ -34,25 +34,20 @@ De haut en bas :
 - Format des tâches : `_shared/task-format.md` (`[~]` en cours, `#petit`, `⏰`).
 - Classer une tâche : petite si elle ne fait avancer aucun jalon. Claude propose la taille à la création, Thomas corrige.
 
-## Ouvrir le panneau sur l'ordinateur
+## Ouvrir le panneau
 
-1. Cloner le repo : `git clone https://github.com/El-Rudi-33/work-assistant.git` (ou GitHub Desktop).
-2. App desktop Claude, onglet Code : nouvelle session **locale** sur ce dossier.
-3. Accepter de faire confiance au dossier, puis d'ajouter le catalogue `work-assistant-mods` et ses deux mods (proposé grâce à `.claude/settings.json`).
-4. Le panneau Work HQ s'ouvre à côté de la conversation ; `/hq` le rouvre.
+Une nouvelle conversation sur work-assistant (cloud ou locale) : le panneau s'ouvre à côté de la conversation ; `/hq` le rouvre.
 
 ## Code
 
 - `mods/work-hq/` : `hooks/register.tsx` (le mod), `types/index.d.ts` (état), `tests/work-hq.test.tsx`.
-- Développer : charger le skill `plugin-authoring`, copier `mods/work-hq` dans le dossier de mods de la session, itérer, `claude plugin validate` et `claude plugin test`, puis recopier ici.
+- Développer : modifier `mods/work-hq`, `claude plugin validate` et `claude plugin test`, relever `version`, pousser sur la branche par défaut, puis nouvelle conversation pour voir le résultat.
 
-## Limite : en session cloud, aucune app n'affiche les mods
+## Où le panneau s'affiche (corrigé le 2026-11-21)
 
-- 2026-11-21 : le mod tourne, mais aucun écran ne s'est connecté à la session (`no surface is attached`), même après réouverture sur Android, mise à jour de l'app et nouvelle session avec les mods installés.
-- Recherche : limite connue. La doc officielle ne liste pas l'app mobile parmi les surfaces qui dessinent ; demande ouverte chez Anthropic (anthropics/claude-code#106948). La réponse texte d'une commande de mod est signalée sur mobile en Remote Control, mais pas en session cloud : testé, elle n'arrive pas. D'où le skill.
-- 2026-11-21 : même constat sur l'app desktop. Une sonde a relevé les écrans connectés toutes les 15 s pendant que Thomas regardait : aucun. Ni panneau, ni thème, ni ligne de statut. Les mods tournent dans le conteneur cloud, mais aucune app ne leur demande de dessiner.
-- Pour voir le panneau et le thème : une session locale (onglet Code de l'app desktop, repo cloné sur l'ordinateur). Le catalogue est lu depuis GitHub, donc il marche aussi en local.
-- Repli si `/hq` ne passe pas non plus : une page web régénérée à chaque `/wrap`.
+- **Il marche en session cloud**, à condition que la conversation démarre avec les mods installés : catalogue `.claude-plugin/marketplace.json` et `.claude/settings.json` sur la branche par défaut. Vérifié par Thomas dans une nouvelle conversation cloud.
+- **Ce qui ne marche pas** : des mods chargés en cours de conversation (dossier de mods de session, rechargement à chaud). Dans la conversation qui les a construits, aucune app ne s'est connectée pour les dessiner (`no surface is attached`), ni sur desktop ni sur Android. Conséquence : pour voir un changement, le pousser sur la branche par défaut (avec `version` relevée) et ouvrir une nouvelle conversation.
+- **Téléphone** : pas encore vérifié dans une conversation qui démarre avec les mods. Le skill `/hq` (texte) reste le repli partout.
 
 ## Ensuite (pistes, pas encore des tâches)
 
