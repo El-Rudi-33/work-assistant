@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.env
+cycle/02_collect/output/*
+!cycle/02_collect/output/.gitkeep

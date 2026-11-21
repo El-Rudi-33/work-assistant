@@ -1,0 +1,31 @@
+---
+title: work-assistant
+description: Le QG de travail, construit en ICM — suivi des projets, savoir-faire des automatisations
+status: building
+prefix: WA
+repo: El-Rudi-33/work-assistant
+updated: 2026-11-21
+---
+# work-assistant
+
+`status` : exploring | building | paused | done.
+
+## But
+Chaque matin je sais quoi faire sur quel projet, et chaque nouvelle automatisation démarre de ce que j'ai déjà construit, sans gaspiller de tokens.
+
+## Jalons
+- [x] Structure ICM, contrats et scripts (2026-11-21)
+- [ ] Repo GitHub en place
+- [ ] Inventaire des repos personnels → `builds/`, `projects/`
+- [ ] Routines soir et matin planifiées
+- [ ] Panneau Work HQ (mod Claude)
+
+## Prochaines actions
+WA-001, WA-002, WA-003.
+
+## Blocages
+- Le repo GitHub `work-assistant` doit être créé à la main (WA-001).
+
+## Pistes
+- Ingérer des exemples d'automatisation publiés en ligne (influenceurs, tutos) via `personal-assistant/Research`, puis en tirer des recettes `emprunté` dans `knowhow/` (WA-007).
+- Un compte GitHub séparé pour AllHereGeneva (WA-008).

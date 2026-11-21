@@ -1,0 +1,3 @@
+# Une expression régulière par ligne. Un commit dont le message correspond est ignoré par 02_collect.
+# Sert à écarter le bruit des routines automatiques, qui coûterait des tokens au digest.
+^chore: daily playlist check
