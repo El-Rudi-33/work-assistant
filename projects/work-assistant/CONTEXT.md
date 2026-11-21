@@ -16,12 +16,12 @@ Chaque matin je sais quoi faire sur quel projet, et chaque nouvelle automatisati
 ## Jalons
 - [x] Structure ICM, contrats et scripts (2026-11-21)
 - [x] Repo GitHub en place (2026-11-21)
-- [ ] Inventaire des repos personnels → `builds/`, `projects/`
+- [x] Inventaire des repos personnels → `builds/`, `projects/` (2026-11-21)
 - [ ] Routines soir et matin planifiées
 - [ ] Panneau Work HQ (mod Claude)
 
 ## Prochaines actions
-WA-002, WA-003, WA-004.
+WA-009, WA-003, WA-004.
 
 ## Blocages
 - aucun

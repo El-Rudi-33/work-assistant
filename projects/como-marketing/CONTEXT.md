@@ -26,4 +26,4 @@ COM-001, COM-002, COM-003.
 - Aucun contact à froid avant la décision nLPD dans `market/compliance.md`.
 
 ## Pistes
-- Le repo « build » de l'agence (produit, démo) est séparé et n'est pas encore dans le registre.
+- Le repo « build » de l'agence (produit, démo) n'existe pas encore (COM-004). Il démarrera par le pipeline `new-build/`, qui pourra s'inspirer de tous les builds existants, pas seulement ceux de Como.

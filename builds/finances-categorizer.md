@@ -26,4 +26,4 @@ CSV UBS (séparateur `;`, 8 lignes d'en-tête) → dédoublonnage → dictionnai
 ## Leçons techniques
 
 ## Limites
-Repo de vie. Porte encore un dossier `.planning/` (GSD).
+Repo de vie.
