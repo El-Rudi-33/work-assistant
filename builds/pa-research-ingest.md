@@ -20,7 +20,7 @@ Source → `Research/raw/` (brut) → `Research/wiki/` (une page par concept) �
 Skills `research-ingest` et `research-capture` ; routine quotidienne de vérification de playlist.
 
 ## Réutilisable
-- [`Research/CLAUDE.md`](https://github.com/El-Rudi-33/personal-assistant/blob/main/Research/CLAUDE.md) : le schéma du wiki et ses procédures
+- [`Research/CONTEXT.md`](https://github.com/El-Rudi-33/personal-assistant/blob/main/Research/CONTEXT.md) : le schéma du wiki et ses procédures
 
 ## Leçons techniques
 
