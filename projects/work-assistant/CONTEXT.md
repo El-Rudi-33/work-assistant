@@ -15,16 +15,16 @@ Chaque matin je sais quoi faire sur quel projet, et chaque nouvelle automatisati
 
 ## Jalons
 - [x] Structure ICM, contrats et scripts (2026-11-21)
-- [ ] Repo GitHub en place
+- [x] Repo GitHub en place (2026-11-21)
 - [ ] Inventaire des repos personnels → `builds/`, `projects/`
 - [ ] Routines soir et matin planifiées
 - [ ] Panneau Work HQ (mod Claude)
 
 ## Prochaines actions
-WA-001, WA-002, WA-003.
+WA-002, WA-003, WA-004.
 
 ## Blocages
-- Le repo GitHub `work-assistant` doit être créé à la main (WA-001).
+- aucun
 
 ## Pistes
 - Ingérer des exemples d'automatisation publiés en ligne (influenceurs, tutos) via `personal-assistant/Research`, puis en tirer des recettes `emprunté` dans `knowhow/` (WA-007).
