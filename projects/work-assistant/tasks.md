@@ -4,7 +4,7 @@ Format : `_shared/task-format.md`.
 
 ## Ouvertes
 
-- [ ] WA-012 business-brain : trancher les 6 contradictions notées dans `inbox.md` et les 2 branches `claude/beautiful-faraday-a5taco` (brief cold outreach en 4 règles) et `ccr-f9182d54-8yt652` (corpus YC, P03, conflits C2/C3)
+- [ ] WA-013 business-brain : décider comment traiter la variable « financement et ambition » qui tranche C5, C6 et C7 (la laisser en clair, ajouter un contrôle avant le régime, ou un 6e axe ; les deux derniers demandent une entrée dans procedure-log.md)
 - [ ] WA-004 Routines du soir et du matin : créées le 2026-11-21 (conversations « Digest du soir — work-assistant » et « Brief du matin ») ; à vérifier après les premiers passages
 - [ ] WA-006 Panneau Work HQ : mod qui lit les `_index.md`
 - [ ] WA-007 Ingérer des exemples d'automatisation externes → recettes `emprunté`
@@ -13,6 +13,7 @@ Format : `_shared/task-format.md`.
 
 ## Archivées
 
+- [x] WA-012 business-brain : trancher les 6 contradictions notées dans `inbox.md` et les 2 branches `claude/beautiful-faraday-a5taco` (brief cold outreach en 4 règles) et `ccr-f9182d54-8yt652` (corpus YC, P03, conflits C2/C3) — fait le 2026-11-21 : branches fusionnées, contradictions C2 et C4 à C8 dans conflicts.md
 - [x] WA-003 Restructurer personal-assistant en ICM — proposition validée le 2026-11-21 (`personal-assistant/Planning/2026-11-21-restructure-icm.md`). Fait : lots 1 à 7 (GSD, contrats, Research, AGENTS.md, ai-consulting, entrepreneurship vers business-brain). Reste : le lot pipeline audio (WA-011) — terminée le 2026-11-21 (lots 1 à 8)
 - [x] WA-011 Lot pipeline audio, depuis le PC de Thomas : `git worktree list`, `ARCHIVE_ROOT` du `.env`, puis déplacer `scripts/` vers `Journal/scripts/`, fusionner les deux `journal-archive/`, retirer `.claude/worktrees/` du suivi, corriger le skill `process-audio-journal` — fait le 2026-11-21 (plus de travail en local, rien à vérifier sur le PC)
 - [x] WA-010 Créer le repo privé du cabinet (labo-prothèse, Maison du Sourire, démo hygiéniste, branche de tri d'e-mails) et y déplacer `personal-assistant/projects/` et les 2 plans de `Planning/` — fait le 2026-11-21
