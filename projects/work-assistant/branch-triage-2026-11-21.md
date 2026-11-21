@@ -6,6 +6,25 @@ updated: 2026-11-21
 ---
 # Tri des branches du 2026-11-21 (WA-009)
 
+## À faire par Thomas
+
+- [ ] Activer « Automatically delete head branches » (Settings > General > Pull Requests) sur chaque repo :
+  [personal-assistant](https://github.com/El-Rudi-33/personal-assistant/settings) ·
+  [work-assistant](https://github.com/El-Rudi-33/work-assistant/settings) ·
+  [business-brain](https://github.com/El-Rudi-33/business-brain/settings) ·
+  [Como_Marketing](https://github.com/El-Rudi-33/Como_Marketing/settings) ·
+  [lettre-de-sortie](https://github.com/El-Rudi-33/lettre-de-sortie/settings) ·
+  [Lettre-de-sortie-com](https://github.com/El-Rudi-33/Lettre-de-sortie-com/settings) ·
+  [SENTRA-Research](https://github.com/El-Rudi-33/SENTRA-Research/settings) ·
+  [finances](https://github.com/El-Rudi-33/finances/settings) ·
+  [Marketing-Tools](https://github.com/El-Rudi-33/Marketing-Tools/settings) ·
+  [Manifestation-Study](https://github.com/El-Rudi-33/Manifestation-Study/settings)
+- [ ] Régler `main` comme branche par défaut (Settings > General > Default branch) sur work-assistant et business-brain.
+- [ ] Supprimer les branches listées en bas de ce fichier.
+- [ ] Como_Marketing : voir avec Jonas les 8 branches non fusionnées.
+
+Ce réglage ne supprime une branche que lorsqu'une PR est fusionnée, pas lors d'une fusion directe sur `main`. Le rapport nocturne (`cycle/02_collect/state/branches.md`) signale le reste.
+
 Méthode : chaque branche comparée à `main`. Fusion `--no-ff` des branches solo sans conflit. Pour les journaux en ajout seul (`*_log.md`, `PROGRESS.md`, `log.md`, les index), les lignes des deux côtés sont gardées. Exclusions : les branches actives depuis moins de 48 h, Como_Marketing (repo partagé) et lettre-de-sortie (règle des deux branches).
 
 ## Fusionné dans main

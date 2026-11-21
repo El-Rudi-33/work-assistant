@@ -5,7 +5,7 @@ Format : `_shared/task-format.md`.
 ## Ouvertes
 
 - [ ] WA-003 Restructurer personal-assistant en ICM (supprimer `.planning/`, dédoublonner `Research/wiki/entrepreneurship` avec business-brain)
-- [ ] WA-004 Planifier les routines du soir (02 + 03) et du matin (04)
+- [ ] WA-004 Routines du soir et du matin : créées le 2026-11-21 (conversations « Digest du soir — work-assistant » et « Brief du matin ») ; à vérifier après les premiers passages
 - [ ] WA-006 Panneau Work HQ : mod qui lit les `_index.md`
 - [ ] WA-007 Ingérer des exemples d'automatisation externes → recettes `emprunté`
 - [ ] WA-008 Sortir les repos AllHereGeneva vers un compte GitHub dédié
