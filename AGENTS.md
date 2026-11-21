@@ -30,6 +30,7 @@ Le QG de travail de Thomas : suivi des projets, tâches, contacts, sessions, et 
 | question business (offre, prix, cible) | skill `business-advisor` (repo business-brain) | le régime nommé |
 | savoir général (vidéo, article ingéré) | `personal-assistant/Research/index.md`, puis la seule page utile | — |
 | état d'un projet | `projects/_index.md` | rapporter ce qui existe |
+| « /hq », le dashboard, mes rappels | skill `hq` (`_tools/hq.py`) | la sortie du script |
 | travailler sur les mods (apparence, panneau) | [handoff-mods](projects/work-assistant/handoff-mods.md) | le retour visuel de Thomas |
 | la carte complète | [CONTEXT.md](CONTEXT.md) | — |
 

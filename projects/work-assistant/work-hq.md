@@ -25,7 +25,7 @@ De haut en bas :
    - « ▸ En pause » : les projets `paused` et `done`, repliés.
 4. **Boutons** : `/wrap`, `/new-build`, « Brief du matin ».
 
-**Sur le téléphone : `/hq`.** L'app Android n'affiche ni panneau ni ligne de mod (voir plus bas). `/hq` répond avec le dashboard en texte, dans le même ordre ; `/hq tout` montre aussi les petites tâches. Sur desktop, `/hq` rouvre aussi le panneau. La ligne mobile au-dessus du prompt reste dans le code, au cas où l'app la dessine un jour.
+**Sur le téléphone : le skill `/hq`.** L'app Android n'affiche ni panneau ni ligne de mod, et n'envoie pas les commandes de mod (un `/hq` tapé arrive comme texte). Le skill `hq` (`.claude/skills/hq/`) lit l'agenda puis lance `python -I _tools/hq.py` : le dashboard en texte, dans le même ordre ; `/hq tout` montre aussi les petites tâches. `_tools/hq.py` reprend les règles du mod : changer l'un, changer l'autre. La ligne mobile au-dessus du prompt reste dans le code, au cas où l'app la dessine un jour.
 
 ## D'où viennent les données
 
@@ -42,7 +42,7 @@ De haut en bas :
 ## Limite : l'app mobile n'affiche pas les mods
 
 - 2026-11-21 : le mod tourne, mais aucun écran ne s'est connecté à la session (`no surface is attached`), même après réouverture sur Android, mise à jour de l'app et nouvelle session avec les mods installés.
-- Recherche : limite connue. La doc officielle ne liste pas l'app mobile parmi les surfaces qui dessinent ; demande ouverte chez Anthropic (anthropics/claude-code#106948). La réponse texte d'une commande est la seule sortie de mod signalée sur mobile, d'où `/hq`.
+- Recherche : limite connue. La doc officielle ne liste pas l'app mobile parmi les surfaces qui dessinent ; demande ouverte chez Anthropic (anthropics/claude-code#106948). La réponse texte d'une commande de mod est signalée sur mobile en Remote Control, mais pas en session cloud : testé, elle n'arrive pas. D'où le skill.
 - Repli si `/hq` ne passe pas non plus : une page web régénérée à chaque `/wrap`.
 
 ## Ensuite (pistes, pas encore des tâches)
@@ -56,5 +56,5 @@ De haut en bas :
 
 - 2026-11-21 · Pas de section « Session en cours » : sans utilité pour Thomas.
 - 2026-11-21 · Les rappels sont des tâches datées, pas un fichier à part ; ce qui n'a pas de projet va dans `admin` (ADM).
-- 2026-11-21 · Sur mobile, le dashboard passe par la commande `/hq` (texte), faute de panneau.
+- 2026-11-21 · Sur mobile, le dashboard passe par le skill `/hq` (texte produit par `_tools/hq.py`), faute de panneau et de commande de mod.
 - 2026-11-21 · Le dashboard vit dans le projet work-assistant (tâches WA), pas dans un projet séparé.
