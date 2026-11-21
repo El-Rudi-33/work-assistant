@@ -7,7 +7,7 @@ Le QG de travail de Thomas : suivi des projets, tâches, contacts, sessions, et 
 | Dossier | Contenu |
 |---|---|
 | `projects/` | bibliothèque : un dossier par projet (statut, tâches, décisions) |
-| `contacts/` | bibliothèque : une fiche par personne |
+| `contacts/` | bibliothèque : une fiche par personne, tout le réseau (perso et pro) |
 | `sessions/` | bibliothèque : une fiche par conversation de travail |
 | `builds/` | bibliothèque : une fiche par automatisation construite |
 | `knowhow/` | bibliothèque : une recette par pattern technique |

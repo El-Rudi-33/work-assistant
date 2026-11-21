@@ -9,6 +9,7 @@ Seul endroit où un repo est nommé. `_tools/collect.py` lit le premier tableau 
 | lettre-de-sortie | El-Rudi-33/lettre-de-sortie | LDS | non | oui |
 | lettre-de-sortie | El-Rudi-33/Lettre-de-sortie-com | LDS | non | oui |
 | sentra | El-Rudi-33/SENTRA-Research | SEN | non | oui |
+| ai-consulting | aucun (notes dans `projects/ai-consulting/`) | AIC | non | non |
 
 - `préfixe` : préfixe des IDs de tâches du projet (`COM-001`).
 - `partagé` : oui si quelqu'un d'autre pousse dessus. Le hub n'y écrit jamais rien.
