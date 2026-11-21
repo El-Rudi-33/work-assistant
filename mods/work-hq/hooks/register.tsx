@@ -230,7 +230,10 @@ export const register: Register = on => {
     hub.root = e.cwd
     hub.seen = 0
 
-    await $.command.register({ name: 'hq', description: 'Work HQ en texte (et le panneau sur desktop) ; /hq tout montre les petites tâches', argumentHint: '[tout]' })
+    // Le skill `hq` du repo prend /hq quand il est là : le refus ne doit pas empêcher le panneau.
+    await $.command
+      .register({ name: 'hq', description: 'Work HQ en texte (et le panneau sur desktop) ; /hq tout montre les petites tâches', argumentHint: '[tout]' })
+      .catch(() => undefined)
     await refresh($)
     void loadAgenda($)
     void $.ui.open({ id: PANE, title: TITLE })

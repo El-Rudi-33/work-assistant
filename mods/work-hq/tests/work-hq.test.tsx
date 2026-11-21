@@ -142,3 +142,31 @@ test('/hq répond par le texte du dashboard', async ($, on) => {
   expect((res as { text?: string }).text).toContain('Call client')
   expect((res as { text?: string }).text).toContain('RAPPELS (3)')
 })
+
+test('le skill hq a déjà /hq : le panneau s\'ouvre quand même', async ($, on) => {
+  on('fs.exists', () => ({ value: true }))
+  on('fs.stat', () => ({ value: { kind: 'file', size: 10, mtimeMs: 3, isLink: false } }))
+  on('fs.read', () => ({ value: JSON.stringify(HQ) }))
+  on('mcp.call', (_, e) => ({
+    value: {
+      isError: false,
+      content: [{ type: 'text', text: JSON.stringify(e.tool === 'list_calendars' ? CALENDARS : EVENTS) }],
+    },
+  }))
+  on('command.register', () => {
+    throw new Error('"/hq" refused: it is the user\'s /hq')
+  })
+  const opened: string[] = []
+  on('ui.open', (_, e) => {
+    opened.push(e.id)
+    return { value: { isPlaced: true } }
+  })
+  on('clock.every', () => ({ value: undefined }))
+  on('session.start', (_, e) => ({ cwd: e.cwd }))
+
+  await $.session.start({ cwd: '/hub', surface: 'desktop', isInteractive: true })
+  expect(opened.length).toBe(1)
+  const ui = await $.ui.mount({ ...PANE, surface: 'desktop' })
+  expect((await ui.find({ type: 'Text', text: /Call client/ }))?.text).toBe('Call client')
+  await ui.unmount()
+})
