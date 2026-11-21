@@ -23,6 +23,10 @@ Chaque matin je sais quoi faire sur quel projet, et chaque nouvelle automatisati
 ## Prochaines actions
 WA-009, WA-003, WA-004.
 
+## Documents de travail
+- [handoff-mods.md](handoff-mods.md) : passage de relais pour la conversation sur l'apparence et les mods.
+- [research-branches.md](research-branches.md) : recherche pour WA-009.
+
 ## Blocages
 - aucun
 

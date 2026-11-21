@@ -13,6 +13,7 @@ Le QG de travail de Thomas : suivi des projets, tâches, contacts, sessions, et 
 | `knowhow/` | bibliothèque : une recette par pattern technique |
 | `cycle/` | pipeline quotidien : wrap → collect → digest → brief |
 | `new-build/` | pipeline : démarrer une nouvelle automatisation |
+| `mods/` | les mods Claude du workflow (thème, panneau) |
 | `_shared/` | références stables : registre des repos, formats, règles |
 | `_templates/` | toute nouvelle fiche est une copie d'un modèle |
 | `_tools/` | scripts, lancés depuis la racine |
@@ -29,6 +30,7 @@ Le QG de travail de Thomas : suivi des projets, tâches, contacts, sessions, et 
 | question business (offre, prix, cible) | skill `business-advisor` (repo business-brain) | le régime nommé |
 | savoir général (vidéo, article ingéré) | `personal-assistant/Research/index.md`, puis la seule page utile | — |
 | état d'un projet | `projects/_index.md` | rapporter ce qui existe |
+| travailler sur les mods (apparence, panneau) | [handoff-mods](projects/work-assistant/handoff-mods.md) | le retour visuel de Thomas |
 | la carte complète | [CONTEXT.md](CONTEXT.md) | — |
 
 ## Les règles
