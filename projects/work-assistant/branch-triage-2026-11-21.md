@@ -20,10 +20,73 @@ updated: 2026-11-21
   [Marketing-Tools](https://github.com/El-Rudi-33/Marketing-Tools/settings) ·
   [Manifestation-Study](https://github.com/El-Rudi-33/Manifestation-Study/settings)
 - [ ] Régler `main` comme branche par défaut (Settings > General > Default branch) sur work-assistant et business-brain.
-- [ ] Supprimer les branches listées en bas de ce fichier.
+- [ ] Supprimer les branches de la section « À supprimer » ci-dessous.
 - [ ] Como_Marketing : voir avec Jonas les 8 branches non fusionnées.
 
 Ce réglage ne supprime une branche que lorsqu'une PR est fusionnée, pas lors d'une fusion directe sur `main`. Le rapport nocturne (`cycle/02_collect/state/branches.md`) signale le reste.
+
+## État final au 2026-11-21 (après toutes les fusions)
+
+### À supprimer (contenu déjà dans la branche de référence)
+
+**personal-assistant** (41)
+
+```bash
+git push origin --delete ccr-2370ba66-i8lepl ccr-24cbff7d-6rr0mo ccr-2994408f-mt0hsp ccr-41895f30-z1udb5 ccr-497432f0-qlrr9m ccr-4fc71f72-64wbns ccr-5153a30b-zr8m5z ccr-6c0ac5e8-t74994 ccr-6f191602-2hasfs ccr-7670918f-s7e2uk ccr-88732091-iabzld ccr-9536e39e-wqawxg ccr-beacfdda-imnzs0 claude/admiring-archimedes-7fjccu claude/ai-skills-exploration-1vuakg claude/airsoft-dream-geneva-lake-llz5r2 claude/astrology-financial-markets-32we15 claude/beautiful-faraday-a5taco claude/book-summary-chapters-1-2-xklc2l claude/brokers-ai-automation-rundjn claude/commodities-phase2-enrichment-wftlor claude/compassionate-fermi-xlb9ue claude/dossiers-dentaires-janice-qr2hcc claude/email-automation-icm-outline-wclhv4 claude/email-classification-mockup-3lvgmj claude/fret-traders-geneve-context-6x3teu claude/geneve-functional-training-gzp5x9 claude/gracious-allen-kfeniv claude/icm-personal-finance-context-l5n49l claude/lundi-bouffe-ia-1ebrce claude/manifestation-book-study-videos-y32cli claude/mathieu-networking-ai-consulting-50we9y claude/nouveaux-reves-juillet-us283x claude/personal-assistant-cleanup-2ez0bt claude/personal-business-marketing-repos-gq6gws claude/personal-journal-reflection-hn54qj claude/reinventer-pratique-sportive-dljdgu claude/session-iqqa86 claude/transfert-harnais-site-web claude/video-advice-extraction-k8pn6n claude/video-explanation-agents-w0zema
+```
+
+**business-brain** (4)
+
+```bash
+git push origin --delete ccr-24cbff7d-6rr0mo ccr-f9182d54-8yt652 claude/beautiful-faraday-a5taco claude/personal-business-marketing-repos-gq6gws
+```
+
+**SENTRA-Research** (16)
+
+```bash
+git push origin --delete ccr-7670918f-s7e2uk ccr-7b2a738c-l8czmd ccr-b9999279-sw5les ccr-bbada4cd-extxze ccr-e94cade5-hsrbr9 ccr-f8fcea11-bz5iwh claude/aides-juridiques-project-eis4ln claude/email-classification-mockup-3lvgmj claude/extractive-fidelity-swiss-hosting-ii3o86 claude/ia-medecine-donnees-suisse-49g5tg claude/jolly-edison-roo1pl claude/llm-citations-hallucinations-3wc3c7 claude/llm-technical-guide-eqdamz claude/medident-november-release-mcgdoe claude/suisse-romande-stakeholders-120c64 claude/swiss-ai-models-exploration-1yhjgr
+```
+
+**finances** (3)
+
+```bash
+git push origin --delete ccr-95510d43-5kielj claude/analyze-2026-transactions-p69h6f claude/lucid-cerf-zmzgs6
+```
+
+**lettre-de-sortie** (4)
+
+```bash
+git push origin --delete avis-medecin-01 claude/eager-bell-w45zvo claude/infomaniak-models-brief-pe5ru9 claude/qwen-pipeline-prompts-improvement-f8zrgd
+```
+
+**Lettre-de-sortie-com** (3)
+
+```bash
+git push origin --delete claude/audit-boucle-agentique-gm5kf1 claude/harness-transfer-plan-adapt-kd2yvu claude/website-redesign-skill-5ettj2
+```
+
+**Como_Marketing** (16)
+
+```bash
+git push origin --delete ccr-88732091-iabzld claude/intelligent-babbage-02phvl claude/personal-business-marketing-repos-gq6gws claude/playlist-video-ingest-index-k3w6rd claude/repo-previous-folder-8yprng claude/research-como-integration-company-aqclrd claude/strategy-repo-redesign-uh1xd6 claude/video-explanation-agents-w0zema claude/youthful-hamilton-dr4bej thomas/carnet-de-vol thomas/consolidation-branches thomas/decisions-2026-10-02 thomas/lot-a thomas/lot-b thomas/lot-c thomas/lot-d
+```
+
+Pour business-brain et work-assistant : régler d'abord `main` comme branche par défaut, sinon GitHub refuse de supprimer l'ancienne.
+
+### Restent (à ne pas supprimer)
+
+- work-assistant · `claude/lucid-cerf-zmzgs6`, `claude/work-hq-panel-design-u2cesn`, `claude/dreamy-ramanujan-p1tnz7` · travail en cours de la conversation sur les mods (panneau Work HQ, skill /hq), à fusionner par elle quand il est fini
+- Como_Marketing · `ccr-648ccb7d-va9bb0` · travail non fusionné · à passer en PR avec Jonas
+- Como_Marketing · `ccr-a41defae-m78t1g` · travail non fusionné · à passer en PR avec Jonas
+- Como_Marketing · `ccr-d489c53f-kel1xq` · travail non fusionné · à passer en PR avec Jonas
+- Como_Marketing · `claude/ecstatic-brahmagupta-5ci9nk` · travail non fusionné · à passer en PR avec Jonas
+- Como_Marketing · `claude/great-dijkstra-uvo6o2` · travail non fusionné · à passer en PR avec Jonas
+- Como_Marketing · `claude/happy-volta-jp2qiq` · travail non fusionné · à passer en PR avec Jonas
+- Como_Marketing · `claude/mathieu-networking-ai-consulting-50we9y` · travail non fusionné · à passer en PR avec Jonas
+- Como_Marketing · `claude/optimistic-ramanujan-pfn0mn` · travail non fusionné · à passer en PR avec Jonas
+
+
+## Historique du tri (premier passage)
 
 Méthode : chaque branche comparée à `main`. Fusion `--no-ff` des branches solo sans conflit. Pour les journaux en ajout seul (`*_log.md`, `PROGRESS.md`, `log.md`, les index), les lignes des deux côtés sont gardées. Exclusions : les branches actives depuis moins de 48 h, Como_Marketing (repo partagé) et lettre-de-sortie (règle des deux branches).
 
@@ -67,48 +130,3 @@ La fusion par union peut laisser des lignes en double ou dans le désordre dans 
 - Como_Marketing · `claude/happy-volta-jp2qiq` · travail non fusionné · à passer en PR avec Jonas
 - Como_Marketing · `claude/mathieu-networking-ai-consulting-50we9y` · travail non fusionné · à passer en PR avec Jonas
 - Como_Marketing · `claude/optimistic-ramanujan-pfn0mn` · travail non fusionné · à passer en PR avec Jonas
-
-## À supprimer (déjà dans main)
-
-Une session cloud ne peut pas supprimer de branche. Depuis ton ordinateur, dans un clone de chaque repo, ou sur la page Branches de chaque repo dans GitHub :
-
-**personal-assistant** (32)
-
-```bash
-git push origin --delete claude/lucid-cerf-zmzgs6 claude/video-advice-extraction-k8pn6n claude/brokers-ai-automation-rundjn claude/icm-personal-finance-context-l5n49l claude/astrology-financial-markets-32we15 claude/transfert-harnais-site-web claude/session-iqqa86 claude/ai-skills-exploration-1vuakg claude/book-summary-chapters-1-2-xklc2l claude/reinventer-pratique-sportive-dljdgu claude/geneve-functional-training-gzp5x9 claude/dossiers-dentaires-janice-qr2hcc claude/nouveaux-reves-juillet-us283x claude/email-automation-icm-outline-wclhv4 claude/video-explanation-agents-w0zema claude/airsoft-dream-geneva-lake-llz5r2 ccr-24cbff7d-6rr0mo ccr-4fc71f72-64wbns claude/beautiful-faraday-a5taco claude/lundi-bouffe-ia-1ebrce ccr-6f191602-2hasfs ccr-7670918f-s7e2uk ccr-9536e39e-wqawxg claude/admiring-archimedes-7fjccu claude/gracious-allen-kfeniv ccr-2994408f-mt0hsp ccr-497432f0-qlrr9m claude/personal-journal-reflection-hn54qj ccr-2370ba66-i8lepl ccr-6c0ac5e8-t74994 ccr-41895f30-z1udb5 ccr-beacfdda-imnzs0
-```
-
-**business-brain** (2)
-
-```bash
-git push origin --delete ccr-24cbff7d-6rr0mo claude/personal-business-marketing-repos-gq6gws
-```
-
-D'abord régler `main` comme branche par défaut de business-brain.
-
-**SENTRA-Research** (15)
-
-```bash
-git push origin --delete claude/llm-technical-guide-eqdamz claude/aides-juridiques-project-eis4ln claude/llm-citations-hallucinations-3wc3c7 claude/swiss-ai-models-exploration-1yhjgr claude/extractive-fidelity-swiss-hosting-ii3o86 claude/suisse-romande-stakeholders-120c64 ccr-7b2a738c-l8czmd claude/jolly-edison-roo1pl claude/medident-november-release-mcgdoe ccr-e94cade5-hsrbr9 ccr-b9999279-sw5les claude/ia-medecine-donnees-suisse-49g5tg claude/email-classification-mockup-3lvgmj ccr-f8fcea11-bz5iwh ccr-bbada4cd-extxze
-```
-
-**finances** (2)
-
-```bash
-git push origin --delete claude/analyze-2026-transactions-p69h6f claude/lucid-cerf-zmzgs6
-```
-
-**Como_Marketing** (16)
-
-```bash
-git push origin --delete ccr-88732091-iabzld claude/intelligent-babbage-02phvl claude/personal-business-marketing-repos-gq6gws claude/playlist-video-ingest-index-k3w6rd claude/repo-previous-folder-8yprng claude/research-como-integration-company-aqclrd claude/strategy-repo-redesign-uh1xd6 claude/video-explanation-agents-w0zema claude/youthful-hamilton-dr4bej thomas/carnet-de-vol thomas/consolidation-branches thomas/decisions-2026-10-02 thomas/lot-a thomas/lot-b thomas/lot-c thomas/lot-d
-```
-
-**Lettre-de-sortie-com** (3)
-
-```bash
-git push origin --delete claude/audit-boucle-agentique-gm5kf1 claude/harness-transfer-plan-adapt-kd2yvu claude/website-redesign-skill-5ettj2
-```
-
-**work-assistant** : `git push origin --delete claude/lucid-cerf-zmzgs6`, après avoir réglé `main` comme branche par défaut.
-
