@@ -17,6 +17,7 @@ Do NOT load : le contenu des repos, les diffs, tout le reste du hub.
 - `output/changes.md` : par repo, les commits (auteur, date, message) et les fichiers touchés.
 - `output/pending-cursors.json` : les nouveaux curseurs, appliqués seulement par 03 quand il passe.
 - `output/check.md`.
+- `state/branches.md` : les branches hors `main` de chaque repo suivi, écrit à chaque passage, même sans commit nouveau.
 
 ## Check
-Le script écrit `check.md` : `pass` s'il y a au moins un commit nouveau, `fail: aucun changement` sinon. `fail` arrête la routine ici : 03 ne tourne pas et rien d'autre n'est lu. Un repo suivi sans clone est signalé dans `changes.md`, sans arrêter les autres.
+Le script écrit `check.md` : `pass` s'il y a au moins un commit nouveau, `fail: aucun changement` sinon. `fail` arrête la routine ici : 03 ne tourne pas et rien d'autre n'est lu. La routine committe seulement `state/branches.md` et s'arrête. Un repo suivi sans clone est signalé dans `changes.md`, sans arrêter les autres.

@@ -1,7 +1,7 @@
 # Règles calendrier
 
-- Le hub écrit uniquement dans le calendrier Google « Travail ». Il ne touche jamais au calendrier personnel.
-- Titre d'événement : `[PRÉFIXE] action` (`[COM] Relancer Marc`). Description : l'ID de la tâche.
-- Le brief du matin pose : les échéances du jour, les relances de contacts, un créneau de focus si la journée en laisse un.
-- Une ligne « Focus du jour : … » en description du premier créneau : c'est ce que lit l'assistant de vie, qui ne lit jamais ce repo.
-- Jamais de suppression d'événement créé par quelqu'un d'autre.
+- Un seul calendrier Google : le calendrier principal de Thomas. Vie et travail y sont ensemble.
+- Le brief du matin le lit pour aujourd'hui et demain, et y pose seulement les échéances et relances du jour issues du hub.
+- Titre d'un événement créé par le hub : `[PRÉFIXE] action` (`[COM] Relancer Jonas`). Description : l'ID de la tâche. C'est ce qui distingue les événements du hub des autres.
+- Avant de créer un événement, vérifier qu'un événement avec le même ID de tâche n'existe pas déjà ce jour-là.
+- Jamais de modification ni de suppression d'un événement que le hub n'a pas créé.

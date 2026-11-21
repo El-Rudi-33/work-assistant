@@ -40,3 +40,4 @@ Le QG de travail de Thomas : suivi des projets, tâches, contacts, sessions, et 
 - Rien ne passe à l'étape suivante tant que le check de la précédente n'est pas `pass`.
 - Les `_index.md` sont générés : `python -I _tools/index.py <dossier>` et `python -I _tools/xref.py`, jamais édités à la main.
 - Hors périmètre : tout repo de l'organisation AllHereGeneva. Ni fiche, ni description, ni lien.
+- Branches : travail direct sur `main` (`git pull --rebase origin main` avant chaque push). Une branche seulement pour un travail mené en parallèle d'une autre session, fusionnée dès qu'il est fini.

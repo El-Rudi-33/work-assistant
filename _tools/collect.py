@@ -38,6 +38,27 @@ def tracked_repos():
     return rows
 
 
+def find_clone(clones, repo):
+    name = repo.split("/")[1].lower()
+    for d in Path(clones).iterdir():
+        if d.name.lower() == name and (d / ".git").exists():
+            return d
+    return None
+
+
+def branches_report(clones, repos):
+    lines = [f"# Branches hors main au {datetime.now(timezone.utc):%Y-%m-%d}", ""]
+    for r in repos:
+        clone = find_clone(clones, r["repo"])
+        if clone is None:
+            continue
+        out = subprocess.run(["git", "-C", str(clone), "ls-remote", "--heads", "origin"], capture_output=True, text=True).stdout
+        heads = [l.split("refs/heads/", 1)[1] for l in out.splitlines() if "refs/heads/" in l]
+        extra = [h for h in heads if h not in ("main", "agentic-loop-dev") and not h.startswith("archive/")]
+        lines.append(f"- {r['slug']} ({r['repo']}) : {len(extra)}" + (f" — {', '.join(extra[:10])}" + (" …" if len(extra) > 10 else "") if extra else ""))
+    (STAGE / "state" / "branches.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def git(clone, *args):
     return subprocess.run(["git", "-C", str(clone), *args], capture_output=True, text=True, check=True).stdout
 
@@ -74,8 +95,8 @@ def collect(clones):
     if not repos:
         lines.append("Aucun repo suivi dans `_shared/repos.md`.")
     for r in repos:
-        clone = Path(clones) / r["repo"].split("/")[1]
-        if not (clone / ".git").exists():
+        clone = find_clone(clones, r["repo"])
+        if clone is None:
             lines += [f"## {r['slug']} ({r['repo']})", "- clone absent : repo non attaché à la session", ""]
             continue
         commits = commits_since(clone, cursors.get(r["repo"]))
@@ -94,6 +115,7 @@ def collect(clones):
             if files:
                 lines.append(f"  - fichiers : {', '.join(files)}{more}")
         lines.append("")
+    branches_report(clones, repos)
     (OUT / "changes.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     PENDING.write_text(json.dumps(pending, indent=2) + "\n", encoding="utf-8")
     verdict = "pass" if total else "fail: aucun changement"

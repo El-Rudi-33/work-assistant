@@ -56,7 +56,7 @@ updated: 2026-11-21
 
 1. **Panneau Work HQ** (tâche WA-006) :
    - une carte par projet : statut, jalons faits / total, prochaine action, jours depuis la dernière activité (en rouge au-delà de 7) ;
-   - section « Aujourd'hui » : le calendrier Google « Travail » via `$.mcp.call`. La tâche WA-005 (créer ce calendrier) n'est pas faite : prévoir un repli sur le calendrier principal ;
+   - section « Aujourd'hui » : le calendrier Google principal (un seul calendrier pour vie et travail, décidé le 2026-11-21) via `$.mcp.call` ; les événements du hub portent un titre `[PRÉFIXE] …` ;
    - section « À relancer » : `next_followup` échu dans `contacts/` ;
    - section « Session en cours » : les tâches touchées.
    - Sources : uniquement les `_index.md` et les `tasks.md`, jamais tout le repo (règle anti-gaspillage du hub). Les `_index.md` actuels portent titre, description et statut. Si le panneau a besoin de plus (jalons, dernière activité), étendre `_tools/index.py` ou `_tools/xref.py` pour générer un index JSON plutôt que de parser les fiches dans le mod.
@@ -74,7 +74,7 @@ Le dossier de mods de session est dans le conteneur cloud et disparaît avec lui
 
 ## État du hub au moment du handoff
 
-- Repo `El-Rudi-33/work-assistant`, branche `claude/lucid-cerf-zmzgs6`, qui est la seule branche (pas encore de `main`).
+- Repo `El-Rudi-33/work-assistant`, branche `main`. Règle : travail direct sur `main` (voir `AGENTS.md`).
 - Fait : structure ICM, inventaire (projets COM, LDS, SEN, WA ; 8 builds ; 3 recettes ; contact Jonas).
-- Tâches ouvertes liées : WA-005 (calendrier Travail), WA-006 (panneau). Autres : WA-003, WA-004, WA-007, WA-008, WA-009. Voir `projects/work-assistant/tasks.md`.
+- Tâche liée : WA-006 (panneau). Autres : WA-003, WA-004, WA-007, WA-008, WA-009. Voir `projects/work-assistant/tasks.md`.
 - WA-009 (prolifération de branches) : recherche faite, rien de décidé. Voir `research-branches.md` à côté de ce fichier. Ne pas la traiter dans la conversation sur les mods, sauf si Thomas le demande.

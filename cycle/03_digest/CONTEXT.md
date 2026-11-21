@@ -14,7 +14,9 @@ Do NOT load : les repos projets. Un diff n'est ouvert que si un message de commi
 2. Par projet : ce qui a avancé (sessions + commits), qui l'a fait (les commits d'autres auteurs sont attribués nommément), ce qui reste bloqué.
 3. Les commits sans session de wrap correspondante : les lister à part, « fait hors session ».
 4. Maximum 25 lignes au total.
-5. Run `python -I _tools/collect.py --advance` pour appliquer les curseurs.
+5. Une ligne « Branches » : les branches hors `main` listées dans `../02_collect/state/branches.md`.
+6. Run `python -I _tools/collect.py --advance` pour appliquer les curseurs.
+7. Committer le digest, `state/` et pousser sur `main`.
 
 ## Outputs
 - `output/AAAA-MM-JJ.md`.
