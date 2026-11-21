@@ -2,6 +2,7 @@
 # Projects
 
 - [AI Consulting](ai-consulting/CONTEXT.md) - Conseil et automatisation IA au nom de Thomas, hors négoce : réseau Mathieu (Courant, Elitebrain), étude JP Middleton (exploring)
+- [Automatisation admin cabinet](automatisation-admin-cabinet/CONTEXT.md) - Assistants administratifs pour cabinets de santé romands — labo de prothèse, Maison du Sourire (tri des e-mails), démo hygiéniste (building)
 - [Como Marketing](como-marketing/CONTEXT.md) - Trouver et convertir les premiers clients de l'agence d'automatisation IA pour le négoce de matières premières et le shipping en Suisse (exploring)
 - [Lettre de sortie](lettre-de-sortie/CONTEXT.md) - Générer des lettres de sortie médicales (Suisse romande) à partir des notes de consultation, sans jamais inventer de contenu clinique (paused)
 - [SENTRA](sentra/CONTEXT.md) - Choisir une niche health-tech défendable en Suisse romande, du côté administratif de la frontière des dispositifs médicaux (exploring)
