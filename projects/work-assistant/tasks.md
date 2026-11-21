@@ -4,7 +4,9 @@ Format : `_shared/task-format.md`.
 
 ## Ouvertes
 
-- [ ] WA-003 Restructurer personal-assistant en ICM (supprimer `.planning/`, dédoublonner `Research/wiki/entrepreneurship` avec business-brain)
+- [ ] WA-003 Restructurer personal-assistant en ICM — proposition validée le 2026-11-21 (`personal-assistant/Planning/2026-11-21-restructure-icm.md`). Fait : lots 1 à 5 (GSD, contrats, Research, AGENTS.md, ai-consulting). Reste : entrepreneurship après migration business-brain ; le repo du cabinet (WA-010) ; le lot pipeline audio (WA-011)
+- [ ] WA-010 Créer le repo privé du cabinet (labo-prothèse, Maison du Sourire, démo hygiéniste, branche de tri d'e-mails) et y déplacer `personal-assistant/projects/` et les 2 plans de `Planning/`
+- [ ] WA-011 Lot pipeline audio, depuis le PC de Thomas : `git worktree list`, `ARCHIVE_ROOT` du `.env`, puis déplacer `scripts/` vers `Journal/scripts/`, fusionner les deux `journal-archive/`, retirer `.claude/worktrees/` du suivi, corriger le skill `process-audio-journal`
 - [ ] WA-004 Routines du soir et du matin : créées le 2026-11-21 (conversations « Digest du soir — work-assistant » et « Brief du matin ») ; à vérifier après les premiers passages
 - [ ] WA-006 Panneau Work HQ : mod qui lit les `_index.md`
 - [ ] WA-007 Ingérer des exemples d'automatisation externes → recettes `emprunté`
