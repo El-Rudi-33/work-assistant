@@ -100,6 +100,51 @@ export function cards(hq: Hq, day: string): { active: Card[]; folded: Card[] } {
   return { active: all.filter(isActive).sort(order), folded: all.filter(c => !isActive(c)) }
 }
 
+/** Le dashboard en texte, pour le téléphone : l'app mobile n'affiche pas les panneaux, seulement la réponse d'une commande. */
+export function summary(hq: Hq, agenda: Agenda, day: string, showSmall: boolean): string {
+  const out: string[] = [`WORK HQ · ${dayLabel(day)}`, '']
+  const line = (t: HqTask) => `  ${t.state === 'doing' ? '▶' : '·'} ${t.id} ${t.text}${t.due !== null ? ` ⏰${t.due.slice(5)}` : ''}`
+
+  out.push("AUJOURD'HUI")
+  if (agenda.status === 'loading') out.push("  agenda en cours de chargement, relance /hq dans un instant")
+  if (agenda.status === 'error') out.push(`  agenda indisponible : ${agenda.message}`)
+  if (agenda.status === 'ok') {
+    if (agenda.events.length === 0) out.push('  Rien de planifié.')
+    for (const ev of agenda.events) out.push(`  ${ev.time}  ${ev.title}`)
+    if (agenda.calendar === 'principal') out.push('  (calendrier principal, « Travail » pas encore créé)')
+  }
+
+  const due = reminders(hq, day)
+  out.push('', due.length > 0 ? `RAPPELS (${due.length})` : 'RAPPELS')
+  if (due.length === 0) out.push('  Aucun rappel.')
+  for (const r of due) out.push(`  ${r.late > STALE_DAYS ? '!! ' : ''}${r.label} · ${r.origin} · ${r.late > 0 ? `depuis ${r.late} j` : "aujourd'hui"}`)
+
+  const { active, folded } = cards(hq, day)
+  out.push('', 'PROJETS')
+  for (const c of active) {
+    const p = c.project
+    const bits = [p.title, p.status]
+    if (p.milestones.total > 0) bits.push(`jalons ${p.milestones.done}/${p.milestones.total}`)
+    if (c.idle !== null) bits.push(`${c.idle > STALE_DAYS ? '!! ' : ''}${ago(c.idle)}`)
+    out.push('', `${bits.join(' · ')}`)
+    for (const t of [...c.doing, ...c.open]) out.push(line(t))
+    if (c.doing.length + c.open.length === 0) out.push('  aucune tâche principale ouverte')
+    if (c.small.length > 0) {
+      if (showSmall) {
+        out.push(`  petites tâches :`)
+        for (const t of c.small) out.push(`  ${line(t)}`)
+      } else {
+        out.push(`  + ${c.small.length} petite${c.small.length > 1 ? 's' : ''} tâche${c.small.length > 1 ? 's' : ''} (/hq tout)`)
+      }
+    }
+  }
+  if (folded.length > 0) {
+    out.push('', `En pause : ${folded.map(c => `${c.project.title}${c.project.milestones.total > 0 ? ` (${c.project.milestones.done}/${c.project.milestones.total})` : ''}`).join(', ')}`)
+  }
+  out.push('', '/wrap · /new-build · « routine du matin »')
+  return out.join('\n')
+}
+
 // ---------- chargement ----------
 
 async function loadHq($: EngineInterface, root: string): Promise<void> {
@@ -185,7 +230,7 @@ export const register: Register = on => {
     hub.root = e.cwd
     hub.seen = 0
 
-    await $.command.register({ name: 'hq', description: 'Ouvrir le panneau Work HQ' })
+    await $.command.register({ name: 'hq', description: 'Work HQ en texte (et le panneau sur desktop) ; /hq tout montre les petites tâches', argumentHint: '[tout]' })
     await refresh($)
     void loadAgenda($)
     void $.ui.open({ id: PANE, title: TITLE })
@@ -201,12 +246,23 @@ export const register: Register = on => {
     return next(e)
   })
 
-  on('command.run', { command: 'hq' }, async $ => {
-    if (hub.root === undefined) return { text: "Work HQ ne s'ouvre que dans le repo work-assistant." }
+  on('command.run', { command: 'hq' }, async ($, e) => {
+    if (hub.root === undefined) return { text: "Work HQ ne marche que dans le repo work-assistant." }
+    hub.seen = 0
     await refresh($)
-    void loadAgenda($)
-    await $.ui.open({ id: PANE, title: TITLE })
-    return { text: 'Work HQ ouvert.' }
+    await loadAgenda($)
+    void $.ui.open({ id: PANE, title: TITLE })
+    const hq = await read($, hqAtom)
+    if (hq === null) return { text: `Pas encore de ${HQ_FILE} : lance /wrap ou python -I _tools/xref.py.` }
+    const text = summary(hq, await read($, agendaAtom), today(), /\btout\b/i.test(e.args))
+    return { text, isTextDisplayOnly: true }
+  })
+
+  on('session.attach', async ($, e, next) => {
+    if (hub.root !== undefined) {
+      void $.ui.open({ id: PANE, title: TITLE })
+    }
+    return next(e)
   })
 
   // Sur le téléphone : une ligne au-dessus du prompt, qui ouvre le panneau.

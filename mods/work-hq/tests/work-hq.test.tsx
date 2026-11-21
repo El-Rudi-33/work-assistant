@@ -1,6 +1,6 @@
 import { expect, test } from 'claude-code/testing'
 
-import { cards, daysBetween, reminders, today } from '../hooks/register'
+import { cards, daysBetween, reminders, summary, today } from '../hooks/register'
 import type { Hq } from '../types'
 
 const DAY = today()
@@ -110,4 +110,35 @@ test('sur mobile, une ligne au-dessus du prompt compte les rappels', async ($, o
   const band = await $.ui.mount({ plugin: 'work-hq', component: 'AbovePrompt', surface: 'mobile', props: {} } as never)
   expect((await band.find({ type: 'Text', text: /rappel/ }))?.text).toBe('3 rappels')
   await band.unmount()
+})
+
+test('/hq en texte : sections, petites tâches repliées puis montrées', () => {
+  const agenda = { status: 'ok', day: DAY, calendar: 'principal', events: [{ time: '14:00', title: 'Call client' }] } as const
+  const short = summary(HQ, agenda, DAY, false)
+  expect(short).toContain('14:00  Call client')
+  expect(short).toContain('RAPPELS (3)')
+  expect(short).toContain('Payer la facture Swisscom')
+  expect(short).toContain('▶ COM-012 Écrire la séquence')
+  expect(short).toContain('+ 1 petite tâche (/hq tout)')
+  expect(short).not.toContain('Comparer deux micros')
+  expect(short).toContain('En pause : Lettre de sortie (1/4)')
+  expect(summary(HQ, agenda, DAY, true)).toContain('COM-015 Comparer deux micros-cravate')
+})
+
+test('/hq répond par le texte du dashboard', async ($, on) => {
+  on('fs.exists', () => ({ value: true }))
+  on('fs.stat', () => ({ value: { kind: 'file', size: 10, mtimeMs: 3, isLink: false } }))
+  on('fs.read', () => ({ value: JSON.stringify(HQ) }))
+  on('mcp.call', (_, e) => ({
+    value: { isError: false, content: [{ type: 'text', text: JSON.stringify(e.tool === 'list_calendars' ? CALENDARS : EVENTS) }] },
+  }))
+  on('command.register', () => ({ value: { command: 'hq' } }))
+  on('ui.open', () => ({ value: { isPlaced: false, reason: 'no-surface' } }))
+  on('clock.every', () => ({ value: undefined }))
+  on('session.start', (_, e) => ({ cwd: e.cwd }))
+  await $.session.start({ cwd: '/hub', surface: null, isInteractive: true })
+
+  const res = await $.command.run({ command: 'hq', args: '' } as never)
+  expect((res as { text?: string }).text).toContain('Call client')
+  expect((res as { text?: string }).text).toContain('RAPPELS (3)')
 })

@@ -25,7 +25,7 @@ De haut en bas :
    - « ▸ En pause » : les projets `paused` et `done`, repliés.
 4. **Boutons** : `/wrap`, `/new-build`, « Brief du matin ».
 
-Sur le téléphone : le panneau vit dans la feuille Mods de l'app ; une ligne au-dessus du prompt (« Work HQ · 3 rappels · 2 en cours ») l'ouvre d'un tap.
+**Sur le téléphone : `/hq`.** L'app Android n'affiche ni panneau ni ligne de mod (voir plus bas). `/hq` répond avec le dashboard en texte, dans le même ordre ; `/hq tout` montre aussi les petites tâches. Sur desktop, `/hq` rouvre aussi le panneau. La ligne mobile au-dessus du prompt reste dans le code, au cas où l'app la dessine un jour.
 
 ## D'où viennent les données
 
@@ -39,10 +39,11 @@ Sur le téléphone : le panneau vit dans la feuille Mods de l'app ; une ligne au
 - `mods/work-hq/` : `hooks/register.tsx` (le mod), `types/index.d.ts` (état), `tests/work-hq.test.tsx`.
 - Développer : charger le skill `plugin-authoring`, copier `mods/work-hq` dans le dossier de mods de la session, itérer, `claude plugin validate` et `claude plugin test`, puis recopier ici.
 
-## Problème ouvert : rien ne s'affiche sur le téléphone
+## Limite : l'app mobile n'affiche pas les mods
 
-- 2026-11-21 : le mod tourne, mais le journal de diagnostic montre qu'aucun écran ne s'est connecté à la session (`no surface is attached`), même après réouverture sur Android. Le client mobile ne demande donc rien au mod.
-- Test suivant : une nouvelle session où les mods sont actifs dès le départ (installation permanente).
+- 2026-11-21 : le mod tourne, mais aucun écran ne s'est connecté à la session (`no surface is attached`), même après réouverture sur Android, mise à jour de l'app et nouvelle session avec les mods installés.
+- Recherche : limite connue. La doc officielle ne liste pas l'app mobile parmi les surfaces qui dessinent ; demande ouverte chez Anthropic (anthropics/claude-code#106948). La réponse texte d'une commande est la seule sortie de mod signalée sur mobile, d'où `/hq`.
+- Repli si `/hq` ne passe pas non plus : une page web régénérée à chaque `/wrap`.
 
 ## Ensuite (pistes, pas encore des tâches)
 
@@ -55,4 +56,5 @@ Sur le téléphone : le panneau vit dans la feuille Mods de l'app ; une ligne au
 
 - 2026-11-21 · Pas de section « Session en cours » : sans utilité pour Thomas.
 - 2026-11-21 · Les rappels sont des tâches datées, pas un fichier à part ; ce qui n'a pas de projet va dans `admin` (ADM).
+- 2026-11-21 · Sur mobile, le dashboard passe par la commande `/hq` (texte), faute de panneau.
 - 2026-11-21 · Le dashboard vit dans le projet work-assistant (tâches WA), pas dans un projet séparé.
