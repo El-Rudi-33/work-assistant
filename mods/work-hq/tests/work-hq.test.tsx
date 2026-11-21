@@ -20,7 +20,7 @@ const HQ: Hq = {
       milestones: { done: 1, total: 3 },
       tasks: [
         { id: 'COM-001', text: 'Trancher les questions ouvertes', state: 'open', size: 'main', due: null, contact: null },
-        { id: 'COM-012', text: 'Écrire la séquence', state: 'doing', size: 'main', due: null, contact: null },
+        { id: 'COM-012', text: 'Écrire la séquence', state: 'doing', size: 'main', due: null, contact: null, session: 'https://claude.ai/code/session_x' },
         { id: 'COM-015', text: 'Comparer deux micros-cravate', state: 'open', size: 'small', due: null, contact: null },
         { id: 'COM-014', text: 'Relancer Marc', state: 'open', size: 'main', due: back(3), contact: 'marc' },
         { id: 'COM-016', text: 'Envoyer le devis', state: 'open', size: 'main', due: ahead(2), contact: null },
@@ -87,6 +87,8 @@ test('le panneau dessine les quatre sections et replie, sur chaque surface', asy
   for (const surface of ['terminal', 'desktop', 'vscode', 'mobile'] as const) {
     const ui = await $.ui.mount({ ...PANE, surface })
     expect((await ui.find({ type: 'Text', text: /Call client/ }))?.text).toBe('Call client')
+    expect((await ui.find({ type: 'Link' }))?.text).toMatch(/COM-012$/)
+    expect(await ui.find({ type: 'Text', text: /Jalons/ })).toBeUndefined()
     expect((await ui.find({ type: 'Text', text: /Payer la facture/ }))?.text).toBe('Payer la facture Swisscom')
     expect(await ui.find({ type: 'Text', text: /Comparer deux micros/ })).toBeUndefined()
     await ui.press({ key: 'small:como-marketing' })

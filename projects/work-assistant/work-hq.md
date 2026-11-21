@@ -10,7 +10,7 @@ Le panneau qui s'ouvre à côté de la conversation quand une session tourne dan
 
 ## Version actuelle : v1 (WA-006)
 
-De haut en bas :
+De haut en bas, chaque section dans un cadre :
 
 1. **Aujourd'hui** : les événements du jour, via le connecteur Google Calendar. Calendrier « Travail » s'il existe, sinon le principal avec une mention (WA-005).
 2. **Rappels** : un seul flux, quel que soit le type (facture, relance, échéance).
@@ -53,6 +53,8 @@ De haut en bas :
 - Prévenir quelques jours avant une échéance (aujourd'hui : seulement à partir de la date).
 
 ## Décisions
+
+- 2026-11-21 · Affiché « Étapes », pas « Jalons » (le mot ne plaît pas à Thomas) ; le titre `## Jalons` des fiches projet ne change pas.
 
 - 2026-11-21 · Pas de section « Session en cours » : sans utilité pour Thomas.
 - 2026-11-21 · Les rappels sont des tâches datées, pas un fichier à part ; ce qui n'a pas de projet va dans `admin` (ADM).

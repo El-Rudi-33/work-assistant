@@ -30,7 +30,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     },
     {
      "id": "COM-002",
@@ -38,7 +39,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     },
     {
      "id": "COM-003",
@@ -46,7 +48,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": "jonas"
+     "contact": "jonas",
+     "session": null
     },
     {
      "id": "COM-004",
@@ -54,7 +57,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": "https://claude.ai/code/session_01RKNWyKif91RNXkRN8wSjkc"
     }
    ]
   },
@@ -75,7 +79,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     },
     {
      "id": "LDS-002",
@@ -83,7 +88,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     }
    ]
   },
@@ -104,7 +110,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     }
    ]
   },
@@ -125,7 +132,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     },
     {
      "id": "WA-004",
@@ -133,7 +141,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     },
     {
      "id": "WA-005",
@@ -141,7 +150,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     },
     {
      "id": "WA-006",
@@ -149,7 +159,8 @@
      "state": "doing",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     },
     {
      "id": "WA-007",
@@ -157,7 +168,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     },
     {
      "id": "WA-008",
@@ -165,7 +177,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": null
     },
     {
      "id": "WA-009",
@@ -173,7 +186,8 @@
      "state": "open",
      "size": "main",
      "due": null,
-     "contact": null
+     "contact": null,
+     "session": "https://claude.ai/code/session_01RKNWyKif91RNXkRN8wSjkc"
     }
    ]
   }

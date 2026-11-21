@@ -1,5 +1,5 @@
 import { atom, read, update } from 'claude-code'
-import type { EngineInterface, Register } from 'claude-code'
+import type { EngineInterface, Register, RenderChildren } from 'claude-code'
 
 import type { Agenda, CalEvent, Hq, HqDated, HqProject, HqTask } from '../types'
 
@@ -124,7 +124,7 @@ export function summary(hq: Hq, agenda: Agenda, day: string, showSmall: boolean)
   for (const c of active) {
     const p = c.project
     const bits = [p.title, p.status]
-    if (p.milestones.total > 0) bits.push(`jalons ${p.milestones.done}/${p.milestones.total}`)
+    if (p.milestones.total > 0) bits.push(`étapes ${p.milestones.done}/${p.milestones.total}`)
     if (c.idle !== null) bits.push(`${c.idle > STALE_DAYS ? '!! ' : ''}${ago(c.idle)}`)
     out.push('', `${bits.join(' · ')}`)
     for (const t of [...c.doing, ...c.open]) out.push(line(t))
@@ -291,7 +291,7 @@ export const register: Register = on => {
   })
 
   on('ui.render', { component: 'Pane', requestId: PANE }, async ($, e) => {
-    const { Box, Text, Button, Progress } = $.ui.resolve(e)
+    const { Box, Text, Button, Progress, Link } = $.ui.resolve(e)
     const hq = await read($, hqAtom)
     const agenda = await read($, agendaAtom)
     const expanded = await read($, expandedAtom)
@@ -301,7 +301,7 @@ export const register: Register = on => {
       update($, expandedAtom, list => (list.includes(k) ? list.filter(x => x !== k) : [...list, k]))
 
     const heading = (label: string, aside?: string) => (
-      <Box flexDirection="row" gap={1} marginTop={1}>
+      <Box flexDirection="row" gap={1}>
         <Text weight="semibold" size="heading">
           {label}
         </Text>
@@ -317,16 +317,27 @@ export const register: Register = on => {
       )
     }
 
+    // Une case par tâche ; le numéro mène à la dernière conversation qui l'a touchée, s'il y en a une.
     const task = (t: HqTask) => (
-      <Box flexDirection="row" gap={1}>
-        <Text color={t.state === 'doing' ? 'suggestion' : undefined} dimColor={t.state !== 'doing'}>
-          {t.state === 'doing' ? '▶' : '·'}
-        </Text>
-        <Text dimColor tabular>
-          {t.id}
-        </Text>
+      <Box flexDirection="row" gap={1} borderStyle="round" borderDimColor={t.state !== 'doing'} borderColor={t.state === 'doing' ? 'suggestion' : undefined} paddingX={1}>
+        {t.state === 'doing' && <Text color="suggestion">▶</Text>}
+        {typeof t.session === 'string' ? (
+          <Text tabular>
+            <Link href={t.session}>{t.id}</Link>
+          </Text>
+        ) : (
+          <Text dimColor tabular>
+            {t.id}
+          </Text>
+        )}
         <Text wrap="wrap">{t.text}</Text>
         {t.due !== null && <Text dimColor>⏰{t.due.slice(5)}</Text>}
+      </Box>
+    )
+
+    const section = (children: RenderChildren[]) => (
+      <Box flexDirection="column" gap={1} borderStyle="round" borderDimColor paddingX={1}>
+        {children}
       </Box>
     )
 
@@ -334,14 +345,14 @@ export const register: Register = on => {
       const { project: p } = c
       const smallKey = `small:${p.slug}`
       return (
-        <Box flexDirection="column" marginTop={1}>
+        <Box flexDirection="column" gap={1}>
           <Box flexDirection="row" gap={1}>
             <Text weight="semibold">{p.title}</Text>
             <Text dimColor>{p.status}</Text>
             {c.idle !== null && <Text color={c.idle > STALE_DAYS ? 'error' : 'subtle'}>{ago(c.idle)}</Text>}
           </Box>
           {p.milestones.total > 0 && (
-            <Progress label="Jalons" value={p.milestones.done} max={p.milestones.total} valueText={`${p.milestones.done}/${p.milestones.total}`} />
+            <Progress label="Étapes" value={p.milestones.done} max={p.milestones.total} valueText={`${p.milestones.done}/${p.milestones.total}`} />
           )}
           {c.doing.map(task)}
           {c.open.map(task)}
@@ -360,53 +371,60 @@ export const register: Register = on => {
     const { active, folded } = cards(hq, day)
 
     return (
-      <Box flexDirection="column">
-        {heading("Aujourd'hui", dayLabel(day))}
-        {agenda.status === 'loading' && <Text dimColor>chargement de l'agenda…</Text>}
-        {agenda.status === 'error' && <Text dimColor>agenda indisponible : {agenda.message}</Text>}
-        {agenda.status === 'ok' && (
-          <Box flexDirection="column">
-            {agenda.events.length === 0 && <Text dimColor>Rien de planifié.</Text>}
-            {agenda.events.map(ev => (
-              <Box flexDirection="row" gap={1}>
-                <Text tabular dimColor>
-                  {ev.time}
-                </Text>
-                <Text wrap="wrap">{ev.title}</Text>
-              </Box>
-            ))}
-            {agenda.calendar === 'principal' && (
-              <Text dimColor size="footnote">
-                calendrier principal (« Travail » pas encore créé, WA-005)
-              </Text>
-            )}
-          </Box>
-        )}
-
-        {heading('Rappels', due.length > 0 ? String(due.length) : undefined)}
-        {due.length === 0 && <Text dimColor>Aucun rappel.</Text>}
-        {due.map(r => (
-          <Box flexDirection="row" gap={1}>
-            <Text wrap="wrap">{r.label}</Text>
-            <Text dimColor>{r.origin}</Text>
-            <Text color={r.late > STALE_DAYS ? 'error' : r.late > 0 ? 'warning' : 'subtle'}>
-              {r.late > 0 ? `depuis ${r.late} j` : "aujourd'hui"}
+      <Box flexDirection="column" gap={1}>
+        {section([
+          heading("Aujourd'hui", dayLabel(day)),
+          agenda.status === 'loading' && <Text dimColor>chargement de l'agenda…</Text>,
+          agenda.status === 'error' && <Text dimColor>agenda indisponible : {agenda.message}</Text>,
+          agenda.status === 'ok' && agenda.events.length === 0 && <Text dimColor>Rien de planifié.</Text>,
+          ...(agenda.status === 'ok'
+            ? agenda.events.map(ev => (
+                <Box flexDirection="row" gap={1}>
+                  <Text tabular dimColor>
+                    {ev.time}
+                  </Text>
+                  <Text wrap="wrap">{ev.title}</Text>
+                </Box>
+              ))
+            : []),
+          agenda.status === 'ok' && agenda.calendar === 'principal' && (
+            <Text dimColor size="footnote">
+              calendrier principal (« Travail » pas encore créé, WA-005)
             </Text>
-          </Box>
-        ))}
+          ),
+        ])}
 
-        {heading('Projets')}
-        {active.map(card)}
-        {folded.length > 0 && (
-          <Box flexDirection="column" marginTop={1}>
-            <Button key="folded" plain dimColor onPress={toggle('folded')}>
-              {`${isOpen('folded') ? '▾' : '▸'} En pause (${folded.length})`}
-            </Button>
-            {isOpen('folded') && folded.map(card)}
-          </Box>
-        )}
+        {section([
+          heading('Rappels', due.length > 0 ? String(due.length) : undefined),
+          due.length === 0 && <Text dimColor>Aucun rappel.</Text>,
+          ...due.map(r => (
+            <Box flexDirection="row" gap={1}>
+              <Text wrap="wrap">{r.label}</Text>
+              <Text dimColor>{r.origin}</Text>
+              <Text color={r.late > STALE_DAYS ? 'error' : r.late > 0 ? 'warning' : 'subtle'}>
+                {r.late > 0 ? `depuis ${r.late} j` : "aujourd'hui"}
+              </Text>
+            </Box>
+          )),
+        ])}
 
-        <Box flexDirection="row" gap={1} marginTop={1}>
+        {section([
+          heading('Projets'),
+          <Text dimColor size="footnote">
+            COM-001… : numéro de la tâche ; souligné, il ouvre la dernière conversation qui l'a traitée.
+          </Text>,
+          ...active.map(card),
+          folded.length > 0 && (
+            <Box flexDirection="column" gap={1}>
+              <Button key="folded" plain dimColor onPress={toggle('folded')}>
+                {`${isOpen('folded') ? '▾' : '▸'} En pause (${folded.length})`}
+              </Button>
+              {isOpen('folded') && folded.map(card)}
+            </Box>
+          ),
+        ])}
+
+        <Box flexDirection="row" gap={1}>
           <Button key="wrap" variant="primary" onPress={() => void $.prompt.submit({ text: '/wrap' })}>
             /wrap
           </Button>

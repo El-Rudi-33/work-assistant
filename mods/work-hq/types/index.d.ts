@@ -5,6 +5,8 @@ export type HqTask = {
   size: 'main' | 'small'
   due: string | null
   contact: string | null
+  /** La dernière conversation (claude.ai) dont la fiche de session cite la tâche. Absent avant xref.py v2. */
+  session?: string | null
 }
 
 export type HqProject = {

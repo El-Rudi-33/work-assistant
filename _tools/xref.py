@@ -7,7 +7,7 @@
 - Vérifie que chaque tâche citée par une session existe dans projects/*/tasks.md.
 - Vérifie que chaque build qui cite un pattern figure dans `builds:` de la recette, et l'inverse.
 - projects/_hq.json : le résumé que lit le panneau Work HQ (mods/work-hq) — projets, jalons, tâches
-  ouvertes, et tout ce qui porte une date (échéances ⏰, relances de contacts).
+  ouvertes (avec la dernière conversation qui les cite), et tout ce qui porte une date (échéances ⏰, relances de contacts).
 Sort en erreur (code 1) si une incohérence est trouvée. Bibliothèque standard seulement.
 """
 import json
@@ -63,11 +63,17 @@ def task(line):
 
 def hq(sessions):
     """projects/_hq.json : ce que le panneau affiche, sans qu'il lise une seule fiche."""
-    last = {}
-    for f in sessions:
+    last, link = {}, {}
+    for f in sorted(sessions, key=lambda f: str(f.get("title", ""))):
         slug, date = f.get("project"), f.get("date")
         if isinstance(slug, str) and isinstance(date, str) and date > last.get(slug, ""):
             last[slug] = date
+        # la dernière conversation qui cite la tâche (titres « AAAA-MM-JJ HH:MM · … » : l'ordre alphabétique est chronologique)
+        url = f.get("link")
+        ids = f.get("tasks") or []
+        if isinstance(url, str) and url.startswith("https://"):
+            for t in ids if isinstance(ids, list) else TASK_ID.findall(ids):
+                link[t] = url
     projects, dated = [], []
     for ctx in sorted((ROOT / "projects").glob("*/CONTEXT.md")):
         slug, f = ctx.parent.name, front(ctx)
@@ -76,6 +82,8 @@ def hq(sessions):
         tasks_md = ctx.parent / "tasks.md"
         lines = section(tasks_md.read_text(encoding="utf-8"), "Ouvertes").splitlines() if tasks_md.exists() else []
         tasks = [t for t in map(task, lines) if t]
+        for t in tasks:
+            t["session"] = link.get(t["id"])
         updated = f.get("updated") if isinstance(f.get("updated"), str) else ""
         projects.append({
             "slug": slug,

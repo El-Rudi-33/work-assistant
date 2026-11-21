@@ -85,7 +85,7 @@ def main():
         bits = [p["title"], p["status"]]
         m = p["milestones"]
         if m["total"]:
-            bits.append(f"jalons {m['done']}/{m['total']}")
+            bits.append(f"étapes {m['done']}/{m['total']}")
         if p.get("lastActivity"):
             n = days(p["lastActivity"])
             bits.append(("!! " if n > STALE else "") + ago(n))
