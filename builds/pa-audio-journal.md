@@ -20,8 +20,8 @@ Audio (Telegram ou fichier) → transcription → classification → enrichissem
 Skill `process-audio-journal` du repo personal-assistant.
 
 ## Réutilisable
-- [`Journal/Dev/scripts/transcribe.py`](https://github.com/El-Rudi-33/personal-assistant/blob/main/Journal/scripts/transcribe.py) : transcription Whisper
-- [`Journal/Dev/scripts/classify.py`](https://github.com/El-Rudi-33/personal-assistant/blob/main/Journal/scripts/classify.py) : classification d'un texte en catégorie avec date
+- [`Journal/scripts/transcribe.py`](https://github.com/El-Rudi-33/personal-assistant/blob/main/Journal/scripts/transcribe.py) : transcription Whisper
+- [`Journal/scripts/classify.py`](https://github.com/El-Rudi-33/personal-assistant/blob/main/Journal/scripts/classify.py) : classification d'un texte en catégorie avec date
 - [`Journal/Dev/Docs/audio_journal_spec.md`](https://github.com/El-Rudi-33/personal-assistant/blob/main/Journal/Dev/Docs/audio_journal_spec.md) : spécification complète
 
 ## Leçons techniques
