@@ -6,8 +6,8 @@
   "extraKnownMarketplaces": {
     "work-assistant-mods": {
       "source": {
-        "source": "directory",
-        "path": "/home/user/work-assistant"
+        "source": "github",
+        "repo": "El-Rudi-33/work-assistant"
       }
     }
   }

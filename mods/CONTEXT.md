@@ -10,4 +10,5 @@ Un dossier par mod (plugin Claude Code : `.claude-plugin/plugin.json`, `hooks/ho
 - Développer : charger le skill `plugin-authoring`, copier le mod dans le dossier de mods de la session, itérer, puis recopier ici.
 - `hooks/make-colors.js` vient du skill `plugin-authoring` : le recopier quand le build de Claude Code change (voir le `look.md` du skill).
 - Installation durable (2026-11-21) : `.claude-plugin/marketplace.json` à la racine liste les mods (catalogue `work-assistant-mods`) ; `.claude/settings.json` les active dans chaque session ouverte sur ce repo. Ajouter un mod = une entrée dans le catalogue + une ligne `enabledPlugins` (`claude plugin install <mod>@work-assistant-mods --scope project`).
-- Le catalogue pointe vers `/home/user/work-assistant`, le chemin du clone dans les conteneurs cloud. Sur un autre ordinateur, réajouter le catalogue depuis le dossier local.
+- Le catalogue est lu depuis GitHub (`El-Rudi-33/work-assistant`, branche par défaut) : un mod modifié n'arrive dans les sessions qu'une fois poussé sur la branche par défaut, avec `version` relevée dans son `plugin.json`.
+- Les mods ne s'affichent qu'en session locale (app desktop, onglet Code, ou terminal) ; en session cloud, aucune app ne les dessine. Voir `projects/work-assistant/work-hq.md`.
