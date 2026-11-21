@@ -1,0 +1,182 @@
+{
+ "version": 1,
+ "projects": [
+  {
+   "slug": "admin",
+   "title": "Admin",
+   "status": "building",
+   "prefix": "ADM",
+   "lastActivity": "2026-11-21",
+   "milestones": {
+    "done": 0,
+    "total": 0
+   },
+   "tasks": []
+  },
+  {
+   "slug": "como-marketing",
+   "title": "Como Marketing",
+   "status": "exploring",
+   "prefix": "COM",
+   "lastActivity": "2026-11-21",
+   "milestones": {
+    "done": 0,
+    "total": 3
+   },
+   "tasks": [
+    {
+     "id": "COM-001",
+     "text": "Trancher les questions ouvertes du plan de marche, dans l'ordre du plan",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    },
+    {
+     "id": "COM-002",
+     "text": "Lancer list-hygiene sur universe.csv avant de s'appuyer sur une ligne",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    },
+    {
+     "id": "COM-003",
+     "text": "Écrire la décision nLPD sur la prospection à froid dans market/compliance.md",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": "jonas"
+    },
+    {
+     "id": "COM-004",
+     "text": "Créer le repo build de l'agence (produit, démo), via le pipeline new-build",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    }
+   ]
+  },
+  {
+   "slug": "lettre-de-sortie",
+   "title": "Lettre de sortie",
+   "status": "paused",
+   "prefix": "LDS",
+   "lastActivity": "2026-11-21",
+   "milestones": {
+    "done": 1,
+    "total": 4
+   },
+   "tasks": [
+    {
+     "id": "LDS-001",
+     "text": "Décider de reprendre ou non P7 (benchmark multi-modèles)",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    },
+    {
+     "id": "LDS-002",
+     "text": "Reprendre la liste priorisée du site (todo.md de Lettre-de-sortie-com)",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    }
+   ]
+  },
+  {
+   "slug": "sentra",
+   "title": "SENTRA",
+   "status": "exploring",
+   "prefix": "SEN",
+   "lastActivity": "2026-11-21",
+   "milestones": {
+    "done": 0,
+    "total": 3
+   },
+   "tasks": [
+    {
+     "id": "SEN-001",
+     "text": "Trancher les questions ouvertes de 00_brief/OPEN_QUESTIONS.md et choisir la niche",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    }
+   ]
+  },
+  {
+   "slug": "work-assistant",
+   "title": "work-assistant",
+   "status": "building",
+   "prefix": "WA",
+   "lastActivity": "2026-11-21",
+   "milestones": {
+    "done": 3,
+    "total": 5
+   },
+   "tasks": [
+    {
+     "id": "WA-003",
+     "text": "Restructurer personal-assistant en ICM (supprimer `.planning/`, dédoublonner `Research/wiki/entrepreneurship` avec business-brain)",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    },
+    {
+     "id": "WA-004",
+     "text": "Planifier les routines du soir (02 + 03) et du matin (04)",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    },
+    {
+     "id": "WA-005",
+     "text": "Créer le calendrier Google « Travail »",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    },
+    {
+     "id": "WA-006",
+     "text": "Panneau Work HQ v1 (voir `work-hq.md`) : agenda, rappels, projets, boutons",
+     "state": "doing",
+     "size": "main",
+     "due": null,
+     "contact": null
+    },
+    {
+     "id": "WA-007",
+     "text": "Ingérer des exemples d'automatisation externes → recettes `emprunté`",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    },
+    {
+     "id": "WA-008",
+     "text": "Sortir les repos AllHereGeneva vers un compte GitHub dédié",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    },
+    {
+     "id": "WA-009",
+     "text": "Mettre fin à la prolifération de branches (une branche par conversation) dans tous les repos",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": null
+    }
+   ]
+  }
+ ],
+ "dated": []
+}

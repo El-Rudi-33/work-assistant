@@ -10,6 +10,7 @@ Seul endroit où un repo est nommé. `_tools/collect.py` lit le premier tableau 
 | lettre-de-sortie | El-Rudi-33/Lettre-de-sortie-com | LDS | non | oui |
 | sentra | El-Rudi-33/SENTRA-Research | SEN | non | oui |
 
+- Projet sans repo : `admin`, préfixe `ADM` (factures, démarches, rappels du travail).
 - `préfixe` : préfixe des IDs de tâches du projet (`COM-001`).
 - `partagé` : oui si quelqu'un d'autre pousse dessus. Le hub n'y écrit jamais rien.
 - `suivi` : oui si la routine du soir collecte ses commits.

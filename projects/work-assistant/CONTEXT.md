@@ -21,11 +21,12 @@ Chaque matin je sais quoi faire sur quel projet, et chaque nouvelle automatisati
 - [ ] Panneau Work HQ (mod Claude)
 
 ## Prochaines actions
-WA-009, WA-003, WA-004.
+WA-006 (en cours), WA-009, WA-003.
 
 ## Documents de travail
 - [handoff-mods.md](handoff-mods.md) : passage de relais pour la conversation sur l'apparence et les mods.
 - [research-branches.md](research-branches.md) : recherche pour WA-009.
+- [work-hq.md](work-hq.md) : conception vivante du panneau Work HQ (WA-006 et suivantes).
 
 ## Blocages
 - aucun
