@@ -1,0 +1,8 @@
+{
+  "name": "work-assistant-mods",
+  "owner": { "name": "Thomas" },
+  "plugins": [
+    { "name": "solarized", "source": "./mods/solarized", "description": "Thème Solarized clair / sombre, texte en serif" },
+    { "name": "work-hq", "source": "./mods/work-hq", "description": "Panneau Work HQ : agenda, rappels, projets, boutons" }
+  ]
+}

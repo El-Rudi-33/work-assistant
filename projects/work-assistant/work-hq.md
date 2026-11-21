@@ -39,6 +39,11 @@ Sur le téléphone : le panneau vit dans la feuille Mods de l'app ; une ligne au
 - `mods/work-hq/` : `hooks/register.tsx` (le mod), `types/index.d.ts` (état), `tests/work-hq.test.tsx`.
 - Développer : charger le skill `plugin-authoring`, copier `mods/work-hq` dans le dossier de mods de la session, itérer, `claude plugin validate` et `claude plugin test`, puis recopier ici.
 
+## Problème ouvert : rien ne s'affiche sur le téléphone
+
+- 2026-11-21 : le mod tourne, mais le journal de diagnostic montre qu'aucun écran ne s'est connecté à la session (`no surface is attached`), même après réouverture sur Android. Le client mobile ne demande donc rien au mod.
+- Test suivant : une nouvelle session où les mods sont actifs dès le départ (installation permanente).
+
 ## Ensuite (pistes, pas encore des tâches)
 
 - Cocher une tâche ou repousser un rappel depuis le panneau (aujourd'hui il faut le demander à Claude).

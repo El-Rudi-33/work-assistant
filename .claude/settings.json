@@ -1,0 +1,14 @@
+{
+  "enabledPlugins": {
+    "work-hq@work-assistant-mods": true,
+    "solarized@work-assistant-mods": true
+  },
+  "extraKnownMarketplaces": {
+    "work-assistant-mods": {
+      "source": {
+        "source": "directory",
+        "path": "/home/user/work-assistant"
+      }
+    }
+  }
+}

@@ -13,3 +13,9 @@ Journal en ajout seul. Une décision business majeure va aussi dans business-bra
 - Choix : aucune fiche, aucune description, aucune ligne dans `_shared/repos.md`.
 - Pourquoi : confidentialité de l'organisation.
 - Ce qui la remettrait en cause : un accord explicite de l'organisation.
+
+## 2026-11-21 · Mods permanents : catalogue dans ce repo
+- Contexte : les mods écrits en session disparaissent avec le conteneur cloud.
+- Choix : `.claude-plugin/marketplace.json` liste `mods/*`, `.claude/settings.json` les active pour toute session sur work-assistant.
+- Pourquoi : le plus simple, les mods vivent avec le workflow.
+- Ce qui la remettrait en cause : d'autres repos ont besoin des mods sans dépendre du hub (alors un repo dédié).
