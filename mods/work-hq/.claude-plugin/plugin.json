@@ -1,1 +1,1 @@
-{ "name": "work-hq", "version": "0.2.0", "description": "Work HQ: agenda du jour, rappels, projets et boutons du hub work-assistant", "types": "./types/index.d.ts" }
+{ "name": "work-hq", "version": "0.3.0", "description": "Work HQ: agenda du jour, rappels, projets et boutons du hub work-assistant", "types": "./types/index.d.ts" }

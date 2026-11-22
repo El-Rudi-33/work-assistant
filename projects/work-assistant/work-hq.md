@@ -46,6 +46,8 @@ Une nouvelle conversation sur work-assistant (cloud ou locale) : le panneau s'ou
 ## Où le panneau s'affiche (corrigé le 2026-11-21)
 
 - **Il marche en session cloud**, à condition que la conversation démarre avec les mods installés : catalogue `.claude-plugin/marketplace.json` et `.claude/settings.json` sur la branche par défaut. Vérifié par Thomas dans une nouvelle conversation cloud.
+- **Installation en cloud (2026-11-22)** : `.claude/settings.json` ne suffit pas. Au démarrage d'une conversation, le catalogue qu'il déclare n'est pas enregistré (`marketplace not registered`, vu dans le journal), et les mods sont ignorés ; c'était le cas de la conversation « Prochaines étapes automatisation business ». Ce qui marche, testé : le script de démarrage de l'environnement cloud `personal-assistant` installe les deux mods au niveau utilisateur (`claude plugin marketplace add El-Rudi-33/work-assistant`, puis `claude plugin install <mod>@work-assistant-mods`).
+- Le work-hq 0.2.0 de la branche par défaut plantait au démarrage (`/hq` déjà pris par le skill `hq`) : corrigé en 0.3.0.
 - **Ce qui ne marche pas** : des mods chargés en cours de conversation (dossier de mods de session, rechargement à chaud). Dans la conversation qui les a construits, aucune app ne s'est connectée pour les dessiner (`no surface is attached`), ni sur desktop ni sur Android. Conséquence : pour voir un changement, le pousser sur la branche par défaut (avec `version` relevée) et ouvrir une nouvelle conversation.
 - **Téléphone** : pas encore vérifié dans une conversation qui démarre avec les mods. Le skill `/hq` (texte) reste le repli partout.
 

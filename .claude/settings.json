@@ -1,14 +1,4 @@
 {
-  "enabledPlugins": {
-    "work-hq@work-assistant-mods": true,
-    "solarized@work-assistant-mods": true
-  },
-  "extraKnownMarketplaces": {
-    "work-assistant-mods": {
-      "source": {
-        "source": "github",
-        "repo": "El-Rudi-33/work-assistant"
-      }
-    }
-  }
+  "enabledPlugins": {},
+  "extraKnownMarketplaces": {}
 }
