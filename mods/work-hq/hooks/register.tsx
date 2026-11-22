@@ -141,7 +141,7 @@ export function summary(hq: Hq, agenda: Agenda, day: string, showSmall: boolean)
   if (folded.length > 0) {
     out.push('', `En pause : ${folded.map(c => `${c.project.title}${c.project.milestones.total > 0 ? ` (${c.project.milestones.done}/${c.project.milestones.total})` : ''}`).join(', ')}`)
   }
-  out.push('', '/wrap · /new-build · « routine du matin »')
+  out.push('', '/wrap · /new-build · /handoff · « routine du matin »')
   return out.join('\n')
 }
 
@@ -291,7 +291,7 @@ export const register: Register = on => {
   })
 
   on('ui.render', { component: 'Pane', requestId: PANE }, async ($, e) => {
-    const { Box, Text, Button, Progress, Link } = $.ui.resolve(e)
+    const { Box, Text, Button, Progress, Link, Input } = $.ui.resolve(e)
     const hq = await read($, hqAtom)
     const agenda = await read($, agendaAtom)
     const expanded = await read($, expandedAtom)
@@ -425,16 +425,39 @@ export const register: Register = on => {
         ])}
 
         <Box flexDirection="row" gap={1}>
-          <Button key="wrap" variant="primary" onPress={() => void $.prompt.submit({ text: '/wrap' })}>
+          <Button key="wrap" variant="primary" onPress={() => void $.command.run({ command: 'wrap' })}>
             /wrap
           </Button>
-          <Button key="new-build" onPress={() => void $.prompt.submit({ text: '/new-build' })}>
+          <Button key="new-build" onPress={() => void $.command.run({ command: 'new-build' })}>
             /new-build
           </Button>
           <Button key="brief" onPress={() => void $.prompt.submit({ text: 'Routine du matin : lance le brief (cycle/04_brief).' })}>
             Brief du matin
           </Button>
+          <Button key="handoff" onPress={toggle('handoff')}>
+            {isOpen('handoff') ? 'Handoff ▾' : 'Handoff'}
+          </Button>
         </Box>
+        {isOpen('handoff') && (
+          <Box flexDirection="column" gap={1} borderStyle="round" borderColor="suggestion" paddingX={1}>
+            <Text dimColor size="footnote">
+              Une nouvelle conversation reprend la tâche, avec le contexte de celle-ci.
+            </Text>
+            <Input
+              key="handoff-text"
+              rows={3}
+              autoFocus
+              placeholder="La tâche à confier…"
+              submitLabel="confier"
+              onSubmit={value => {
+                const text = value.trim()
+                if (text === '') return
+                void update($, expandedAtom, list => list.filter(x => x !== 'handoff'))
+                void $.command.run({ command: 'handoff', args: text })
+              }}
+            />
+          </Box>
+        )}
       </Box>
     )
   })

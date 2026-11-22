@@ -23,7 +23,7 @@ De haut en bas, chaque section dans un cadre :
    - tâches en cours `[~]` d'abord (▶), puis les autres tâches principales ;
    - « ▸ N petites tâches » : les tâches `#petit`, repliées ;
    - « ▸ En pause » : les projets `paused` et `done`, repliés.
-4. **Boutons** : `/wrap`, `/new-build`, « Brief du matin ».
+4. **Boutons** : `/wrap`, `/new-build`, « Brief du matin », « Handoff ». Handoff ouvre un champ : la tâche décrite part au skill `handoff` (`.claude/skills/handoff/`), qui écrit `projects/<slug>/handoff-<sujet>.md` et ouvre une nouvelle conversation cloud qui la reprend. Les boutons lancent les commandes par `$.command.run` : un prompt qui commence par `/` est refusé au mod.
 
 **Sur le téléphone : le skill `/hq`.** L'app Android n'affiche ni panneau ni ligne de mod, et n'envoie pas les commandes de mod (un `/hq` tapé arrive comme texte). Le skill `hq` (`.claude/skills/hq/`) lit l'agenda puis lance `python -I _tools/hq.py` : le dashboard en texte, dans le même ordre ; `/hq tout` montre aussi les petites tâches. `_tools/hq.py` reprend les règles du mod : changer l'un, changer l'autre. La ligne mobile au-dessus du prompt reste dans le code, au cas où l'app la dessine un jour.
 
@@ -53,6 +53,8 @@ De haut en bas, chaque section dans un cadre :
 - Prévenir quelques jours avant une échéance (aujourd'hui : seulement à partir de la date).
 
 ## Décisions
+
+- 2026-11-22 · Le handoff crée la conversation suivante lui-même (`create_session`), avec la fiche complète dans le premier message ; la fiche reste dans le projet, reliée par `from:` et `to:`.
 
 - 2026-11-21 · Affiché « Étapes », pas « Jalons » (le mot ne plaît pas à Thomas) ; le titre `## Jalons` des fiches projet ne change pas.
 

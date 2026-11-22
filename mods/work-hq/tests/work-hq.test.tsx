@@ -172,3 +172,30 @@ test('le skill hq a déjà /hq : le panneau s\'ouvre quand même', async ($, on)
   expect((await ui.find({ type: 'Text', text: /Call client/ }))?.text).toBe('Call client')
   await ui.unmount()
 })
+
+test('Handoff : le champ envoie /handoff avec la tâche, puis se referme', async ($, on) => {
+  on('fs.exists', () => ({ value: true }))
+  on('fs.stat', () => ({ value: { kind: 'file', size: 10, mtimeMs: 4, isLink: false } }))
+  on('fs.read', () => ({ value: JSON.stringify(HQ) }))
+  on('mcp.call', () => ({ value: { isError: true, content: [{ type: 'text', text: 'non' }] } }))
+  on('command.register', () => ({ value: { command: 'hq' } }))
+  on('ui.open', () => ({ value: { isPlaced: true } }))
+  on('clock.every', () => ({ value: undefined }))
+  const sent: string[] = []
+  on('command.run', (_, e) => {
+    sent.push(`/${e.command} ${e.args}`)
+    return { text: '' }
+  })
+  on('session.start', (_, e) => ({ cwd: e.cwd }))
+  await $.session.start({ cwd: '/hub', surface: 'desktop', isInteractive: true })
+
+  const ui = await $.ui.mount({ ...PANE, surface: 'desktop' })
+  expect(await ui.find({ key: 'handoff-text' })).toBeUndefined()
+  await ui.press({ key: 'handoff' })
+  await ui.input({ key: 'handoff-text', text: '  Écrire la séquence e-mails  ' })
+  expect(sent).toEqual(['/handoff Écrire la séquence e-mails'])
+  expect(await ui.find({ key: 'handoff-text' })).toBeUndefined()
+  await ui.press({ key: 'wrap' })
+  expect(sent).toEqual(['/handoff Écrire la séquence e-mails', '/wrap '])
+  await ui.unmount()
+})
