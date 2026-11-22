@@ -6,7 +6,7 @@ date: 2026-11-22
 project: work-assistant
 tasks: [WA-010]
 from: https://claude.ai/code/session_01RKNWyPLzWd8m9dXxx5cQTY
-to: {URL de la conversation qui reprend}
+to: https://claude.ai/code/session_01RKNWyLoLwm39HBNWVxxz1s
 ---
 # Handoff — test du handoff
 
