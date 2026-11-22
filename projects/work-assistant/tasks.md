@@ -11,6 +11,7 @@ Format : `_shared/task-format.md`.
 - [ ] WA-007 Ingérer des exemples d'automatisation externes → recettes `emprunté`
 - [ ] WA-008 Sortir les repos AllHereGeneva vers un compte GitHub dédié
 - [ ] WA-009 Mettre fin à la prolifération de branches (une branche par conversation) dans tous les repos
+- [ ] WA-010 Tester le handoff de bout en bout (bouton Handoff → nouvelle conversation) #petit
 
 ## Archivées
 
