@@ -27,3 +27,4 @@ LDS-001, LDS-002.
 
 ## Pistes
 - Les règles de travail du repo imposent la branche `agentic-loop-dev` : jamais de branche `claude/…` là-bas.
+- Concurrents vus le 2026-11-22 dans l'annuaire SwissMed AI (mdai.ch/tools, 147+ outils) : Aida Medical, scribe qui rédige la note pendant la consultation et propose ICD-10 et TARDOC ; Xander, dictée vers rapport structuré avec prestations TARDOC, médicaments et matériel. Page Research : `wiki/ai-technology/swissmed-ai-tool-directory.md`.

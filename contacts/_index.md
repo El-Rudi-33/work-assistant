@@ -3,10 +3,12 @@
 
 - [Dean Radin](dean-radin.md) - Noetic Sciences (active)
 - [Erica Cornwall](erica-cornwall.md) - Mindsight, Revel Collective (active)
+- [Florian Kaufmann](florian-kaufmann.md) - Fondateur d'Adona, infrastructure de risque et de données de marché pour prop firms et brokers (Genève) (active)
 - [Gordon Montgomery, PhD](gordon-montgomery.md) - Marshall Chair for AI Alignment and Consciousness Research, Sofia University (active)
 - [Jonas](jonas.md) - associé sur Como Marketing (active)
 - [Marc Renfer](marc-renfer.md) - journaliste, lance Courant (média numérique local genevois) (active)
 - [Marco Di Giano](marco-di-giano.md) - Mindsight (active)
 - [Mathieu](mathieu-creadvisors.md) - conseiller immobilier, CREAdvisors ; connecteur du réseau genevois (active)
 - [Pascal Eichenberger](pascal-eichenberger.md) - fondateur Elitebrain (IA et décision exécutive), lié à Aisance SA (active)
+- [Philippe Sikias](philippe-sikias.md) - Partner chez CdR Capital, conseiller de familles UHNW, investisseur private markets (Genève) (active)
 - [Thierry Demiéville](thierry-demieville.md) - juridique bancaire, DAS Commodity Trading UniGE (active)

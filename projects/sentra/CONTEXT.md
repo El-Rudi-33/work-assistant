@@ -26,3 +26,4 @@ SEN-001.
 
 ## Pistes
 - Lien naturel avec Lettre de sortie (même marché, même contrainte réglementaire).
+- Pour le jalon « Concurrents cartographiés » : l'annuaire SwissMed AI (mdai.ch/tools) liste 147+ outils IA pour médecins suisses, avec catégories (documentation, facturation, praxis, clinique). Page Research : `wiki/ai-technology/swissmed-ai-tool-directory.md`.
