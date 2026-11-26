@@ -55,6 +55,14 @@
      "size": "main",
      "due": null,
      "contact": null
+    },
+    {
+     "id": "COM-005",
+     "text": "Contacter Aurélien Barbut (SharkOps) : commenter son post, puis message « avis d'opérateur » sur l'extracteur SOF → laytime, après COM-003",
+     "state": "open",
+     "size": "main",
+     "due": null,
+     "contact": "aurelien-barbut"
     }
    ]
   },
